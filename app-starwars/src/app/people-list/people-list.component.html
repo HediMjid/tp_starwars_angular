@@ -1,0 +1,6 @@
+<h3>List of people</h3>
+<div *ngFor="let people of peoples.results">
+    <p><a routerLink="/details/{{people.url}}">{{people.name}}</a></p>
+</div>
+
+<a routerLink="/people/1">1</a> - <a routerLink="/people/2">2</a>
