@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { PeopleListComponent } from './people-list/people-list.component';
 
 const routes: Routes = [
-  { path: 'people', component: PeopleListComponent},
+  // { path: 'people', redirectTo:'people/1', pathMatch: 'full'},
   { path: 'people/:page', component: PeopleListComponent},
   { path: '', component: AccueilComponent}
 ];
