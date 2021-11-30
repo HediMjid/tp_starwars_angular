@@ -1,0 +1,11 @@
+<div *ngIf="people">
+    <h2>{{people.name}}</h2>
+    <p>{{people.gender}}</p>
+    <p>{{people.homeworld}}</p>
+    <button (click)=toggleDisplayDivIf() >Films concernés [+]</button>  
+    <div *ngIf="!isShowDivIf">
+        <div *ngFor="let film of people.films">
+            <app-film-details [data]="film"></app-film-details>
+        </div>
+    </div>
+</div>

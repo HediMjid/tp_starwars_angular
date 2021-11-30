@@ -1,6 +1,9 @@
 <h3>List of people</h3>
-<div *ngFor="let people of peoples.results">
-    <p><a routerLink="/details/{{people.url}}">{{people.name}}</a></p>
+<div *ngFor="let people of peoples">
+    <p><a routerLink="/people/details/{{people.id}}">{{people.name}}</a></p>
 </div>
 
-<a routerLink="/people/1">1</a> - <a routerLink="/people/2">2</a>
+<div *ngFor="let in of totalPage ;let i = index" style="display:inline-flex">
+    <a routerLink="/people/page/{{i+1}}">{{i+1}}</a> - 
+</div>
+

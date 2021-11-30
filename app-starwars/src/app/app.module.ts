@@ -7,12 +7,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PeopleListComponent } from './people-list/people-list.component';
 import { AccueilComponent } from './accueil/accueil.component';
+import { PeopleDetailsComponent } from './people-details/people-details.component';
+import { FilmDetailsComponent } from './film-details/film-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PeopleListComponent,
-    AccueilComponent
+    AccueilComponent,
+    PeopleDetailsComponent,
+    FilmDetailsComponent
   ],
   imports: [
     BrowserModule,
