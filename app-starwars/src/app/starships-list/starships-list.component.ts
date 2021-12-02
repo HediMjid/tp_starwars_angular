@@ -3,12 +3,13 @@ import { ServiceSwapiService } from '../service-swapi.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-people-list',
-  templateUrl: './people-list.component.html',
-  styleUrls: ['./people-list.component.css']
+  selector: 'app-starships-list',
+  templateUrl: './starships-list.component.html',
+  styleUrls: ['./starships-list.component.css']
 })
-export class PeopleListComponent implements OnInit {
-  peoples : any;
+export class StarshipsListComponent implements OnInit {
+
+  starships : any;
   page: any;
   totalPage : any;
   results : any;
@@ -21,19 +22,19 @@ export class PeopleListComponent implements OnInit {
   ngOnInit(): void {
     const page = Number(this.route.snapshot.paramMap.get('page'));
   
-    this.httpService.getInfosList('people',page).subscribe(
+    this.httpService.getInfosList('starships',page).subscribe(
       (response) => { 
         this.results = response;
-        this.peoples = this.results.results;
+        this.starships = this.results.results;
         this.totalPage = new Array(Math.ceil(this.results.count/10));
         //console.log(this.totalPage);
         //console.log(this.peoples);
-        for(let i=0;i<this.peoples.length;i++){
+        for(let i=0;i<this.starships.length;i++){
           let findId = this.results.results[i].url.split("/");
           findId = findId[5];
-          this.peoples[i].id =findId;
+          this.starships[i].id =findId;
         }
-        console.log(this.peoples);
+        console.log(this.starships);
       }
     );
   }

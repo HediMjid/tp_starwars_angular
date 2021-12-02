@@ -1,11 +1,20 @@
-<div *ngIf="people">
-    <h2>{{people.name}}</h2>
-    <p>{{people.gender}}</p>
-    <p>{{people.homeworld}}</p>
-    <button (click)=toggleDisplayDivIf() >Films concernés [+]</button>  
-    <div *ngIf="!isShowDivIf">
-        <div *ngFor="let film of people.films">
-            <app-film-details [data]="film"></app-film-details>
+<div *ngIf="people" style="display: inline-flex;">
+    <div style="padding:20px; background-color: rgb(239, 220, 255);">
+        <h2>{{people.name}}</h2>
+        <p>{{people.gender}}</p>
+        <p>{{people.homeworld}}</p>
+        <p>{{people.birth_year}}</p>
+        <p>{{people.eye_color}}</p>
+        <p>{{people.hair_color}}</p>
+        <p>{{people.height}}</p>
+        <p>{{people.skin_color}}</p>
+        <button (click)=toggleDisplayDivFilms() >Films concernés [+]</button>
+    </div>
+    <div style="margin-left :20px;">
+        <div *ngIf="!isShowDivFilms">
+            <div *ngFor="let film of people.films">
+                <app-film-details [data]="film"></app-film-details>
+            </div>
         </div>
     </div>
 </div>

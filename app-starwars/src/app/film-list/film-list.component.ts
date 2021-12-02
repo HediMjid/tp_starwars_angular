@@ -3,12 +3,12 @@ import { ServiceSwapiService } from '../service-swapi.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-people-list',
-  templateUrl: './people-list.component.html',
-  styleUrls: ['./people-list.component.css']
+  selector: 'app-film-list',
+  templateUrl: './film-list.component.html',
+  styleUrls: ['./film-list.component.css']
 })
-export class PeopleListComponent implements OnInit {
-  peoples : any;
+export class FilmListComponent implements OnInit {
+  films : any;
   page: any;
   totalPage : any;
   results : any;
@@ -21,19 +21,18 @@ export class PeopleListComponent implements OnInit {
   ngOnInit(): void {
     const page = Number(this.route.snapshot.paramMap.get('page'));
   
-    this.httpService.getInfosList('people',page).subscribe(
+    this.httpService.getInfosList('films',page).subscribe(
       (response) => { 
         this.results = response;
-        this.peoples = this.results.results;
+        this.films = this.results.results;
         this.totalPage = new Array(Math.ceil(this.results.count/10));
-        //console.log(this.totalPage);
-        //console.log(this.peoples);
-        for(let i=0;i<this.peoples.length;i++){
+
+        for(let i=0;i<this.films.length;i++){
           let findId = this.results.results[i].url.split("/");
           findId = findId[5];
-          this.peoples[i].id =findId;
+          this.films[i].id =findId;
         }
-        console.log(this.peoples);
+        console.log(this.films);
       }
     );
   }

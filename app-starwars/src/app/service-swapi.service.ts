@@ -7,18 +7,24 @@ import { Injectable } from '@angular/core';
 export class ServiceSwapiService {
 
   private url = 'https://swapi.dev/api/people/';
+  private url_test = 'https://swapi.dev/api/';
 
   constructor(private http: HttpClient) { }
 
-  getPeoples(page: any){
-    return this.http.get(this.url+'?page='+page);
+  getInfosList(category:any, page: any){
+    return this.http.get(this.url_test+category+'/'+'?page='+page);
   }
 
-  getOnePeople(id: any){
-    return this.http.get(this.url+id);
+  // remplacer par getInfosList
+  // getPeoples(page: any){
+  //   return this.http.get(this.url+'?page='+page);
+  // }
+
+  getInfosById(category:any,id: any){
+    return this.http.get(this.url_test+category+'/'+id);
   }
 
-  getOneFilm(url: any){
+  getInfosByURL(url: any){
     return this.http.get(url);
   }
 }

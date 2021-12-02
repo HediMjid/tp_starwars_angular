@@ -9,6 +9,9 @@ import { PeopleListComponent } from './people-list/people-list.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { PeopleDetailsComponent } from './people-details/people-details.component';
 import { FilmDetailsComponent } from './film-details/film-details.component';
+import { FilmListComponent } from './film-list/film-list.component';
+import { StarshipsListComponent } from './starships-list/starships-list.component';
+import { StarshipsDetailsComponent } from './starships-details/starships-details.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { FilmDetailsComponent } from './film-details/film-details.component';
     PeopleListComponent,
     AccueilComponent,
     PeopleDetailsComponent,
-    FilmDetailsComponent
+    FilmDetailsComponent,
+    FilmListComponent,
+    StarshipsListComponent,
+    StarshipsDetailsComponent
   ],
   imports: [
     BrowserModule,

@@ -19,16 +19,16 @@ export class PeopleDetailsComponent implements OnInit {
     };
    }
 
-   isShowDivIf = true;  
+   isShowDivFilms = true;  
     
-   toggleDisplayDivIf() {  
-     this.isShowDivIf = !this.isShowDivIf;  
+   toggleDisplayDivFilms() {  
+     this.isShowDivFilms = !this.isShowDivFilms;  
    }  
 
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
   
-    this.httpService.getOnePeople(id).subscribe(
+    this.httpService.getInfosById('people',id).subscribe(
       (response) => { 
         this.results = response;
         this.people = this.results;

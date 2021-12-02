@@ -1,0 +1,8 @@
+<h3>List of starships</h3>
+<div *ngFor="let starship of starships">
+    <p><a routerLink="/starships/details/{{starship.id}}">{{starship.name}}</a></p>
+</div>
+
+<div *ngFor="let in of totalPage ;let i = index" style="display:inline-flex">
+    <a routerLink="/starships/page/{{i+1}}">{{i+1}}</a> - 
+</div>
