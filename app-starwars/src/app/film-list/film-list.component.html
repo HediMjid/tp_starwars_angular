@@ -1,4 +1,18 @@
 <h3>List of films</h3>
-<div *ngFor="let film of films">
-    <p><a routerLink="/films/details/{{film.id}}">{{film.title}}</a></p>
-</div>
+
+<table class="table" style="width: 500px;">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Episode</th>
+            <th scope="col">Release</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let film of films">
+            <td><a routerLink="/films/details/{{film.id}}">{{film.title}}</a></td>
+            <td>{{film.episode_id | number}}</td>
+            <td>{{film.release_date | date}}</td>
+        </tr>
+    </tbody>
+</table>

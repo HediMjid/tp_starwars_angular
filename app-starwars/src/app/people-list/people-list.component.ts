@@ -20,7 +20,7 @@ export class PeopleListComponent implements OnInit {
 
   ngOnInit(): void {
     const page = Number(this.route.snapshot.paramMap.get('page'));
-  
+
     this.httpService.getInfosList('people',page).subscribe(
       (response) => { 
         this.results = response;

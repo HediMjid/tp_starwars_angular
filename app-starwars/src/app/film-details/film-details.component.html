@@ -1,16 +1,27 @@
 <div *ngIf="results" style="display: inline-flex;">
-    <div style="padding:20px; background-color: rgb(239, 220, 255);">
-        <p><span style="font-size: 22px;">{{results.title}}</span><span style="font-size: 14px;"> (by {{results.director}})</span></p>
-        <p style="width:350px; text-align: justify;">{{results.opening_crawl}}</p>
-        <p style="font-size: 12px;">release : {{results.release_date | date}}</p>
-        <p style="font-size: 12px;">producer : {{results.producer}}</p>
-        <!-- affichage des boutons si on est dans la page des films -->
-        <div *ngIf="directory">
-            <p><button (click)=toggleDisplayDivVaisseaux()>Vaisseaux concernés [+]</button></p>
-            <p><button>Espèces concernés [+]</button></p>
+
+    <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="./assets/img/film-{{results.episode_id}}.jpg" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h4 class="card-title">{{results.title}}<span style="font-size: 12px;"> (by {{results.director}})</span></h4>
+                    <p class="card-text">{{results.opening_crawl}}</p>
+                    <p class="card-text"><small class="text-muted">release : {{results.release_date | date}}</small></p>
+                    <p class="card-text"><small class="text-muted">producer : {{results.producer}}</small></p>
+                    <div *ngIf="directory">
+                        <p>
+                            <button type="button" class="btn btn-outline-dark"
+                                (click)="toggleDisplayDivVaisseaux()">Vaisseaux concernés [+]</button>
+                            <button type="button" class="btn btn-outline-dark">Espèces concernés [+]</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-
 
     <div style="margin-left:20px">
         <div *ngIf="!isShowDivVaisseaux">

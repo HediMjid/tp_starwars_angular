@@ -1,5 +1,11 @@
 <div *ngIf="results">
-    <p><span style="font-size: 22px;">{{results.name}}</span><span style="font-size: 14px;"> ({{results.starship_class}})</span></p>
-    <p>manufacturer : {{results.manufacturer}}</p>
-    <p>passengers : {{results.passengers}}</p>
+    <div class="card mb-3" style="width: 500px;">
+        <img src="./assets/img/vaisseau-{{results.id}}.jpg" class="card-img-top" style="height: 13rem; object-fit: cover;">
+        <div class="card-body">
+            <h5 class="card-title">{{results.name}} <span style="font-size: 14px;"> ({{results.starship_class}})</span></h5>
+            <p class="card-text">manufacturer : {{results.manufacturer}}</p>
+            <p class="card-text">passengers : {{results.passengers}}</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+    </div>
 </div>

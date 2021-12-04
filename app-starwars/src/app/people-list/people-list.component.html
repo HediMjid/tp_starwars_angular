@@ -1,8 +1,26 @@
 <h3>List of people</h3>
-<div *ngFor="let people of peoples">
-    <p><a routerLink="/people/details/{{people.id}}">{{people.name}}</a></p>
-</div>
 
-<div *ngFor="let in of totalPage ;let i = index" style="display:inline-flex">
-    <a routerLink="/people/page/{{i+1}}">{{i+1}}</a> - 
-</div>
+<table class="table" style="width: 550px;">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Homeworld</th>
+            <th scope="col">Gender</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let people of peoples">
+            <td><a routerLink="/people/details/{{people.id}}">{{people.name}}</a></td>
+            <td>{{people.homeworld}}</td>
+            <td>{{people.gender}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<nav>
+    <ul class="pagination pagination-sm">
+        <li *ngFor="let in of totalPage ;let i = index" class="page-item" routerLinkActive="active">
+            <a class="page-link active" routerLink="/people/page/{{i+1}}">{{i+1}}</a>
+        </li>
+    </ul>
+</nav>

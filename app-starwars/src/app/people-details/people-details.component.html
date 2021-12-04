@@ -8,7 +8,7 @@
         <p>{{people.hair_color}}</p>
         <p>{{people.height}}</p>
         <p>{{people.skin_color}}</p>
-        <button (click)=toggleDisplayDivFilms() >Films concernés [+]</button>
+        <button type="button" class="btn btn-outline-dark" (click)="toggleDisplayDivFilms()">Films concernés [+]</button>
     </div>
     <div style="margin-left :20px;">
         <div *ngIf="!isShowDivFilms">

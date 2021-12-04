@@ -26,6 +26,9 @@ export class StarshipsDetailsComponent implements OnInit {
     this.httpService.getInfosByURL(this.data).subscribe(
       (response) => { 
         this.results = response;
+        let findId = this.results.url.split("/");
+        findId = findId[5];
+        this.results.id =findId;
         console.log(response);
       }
     );
@@ -34,6 +37,7 @@ export class StarshipsDetailsComponent implements OnInit {
       (response) => { 
         this.results = response;
         this.starships = this.results;
+        this.starships.id = id;
         console.log(response);
       }
     );
