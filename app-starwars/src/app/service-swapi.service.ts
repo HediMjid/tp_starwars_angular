@@ -27,4 +27,8 @@ export class ServiceSwapiService {
   getInfosByURL(url: any){
     return this.http.get(url);
   }
+
+  getInfosSearch(category:any, keyword: any){
+    return this.http.get(this.url_test+category+'/'+'?search='+keyword);
+  }
 }

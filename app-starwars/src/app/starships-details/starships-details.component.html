@@ -1,4 +1,4 @@
-<div *ngIf="results">
+<div *ngIf="results" style="display: inline-flex;">
     <div class="card mb-3" style="width: 500px;">
         <img src="./assets/img/vaisseau-{{results.id}}.jpg" class="card-img-top" style="height: 13rem; object-fit: cover;">
         <div class="card-body">
@@ -6,6 +6,17 @@
             <p class="card-text">manufacturer : {{results.manufacturer}}</p>
             <p class="card-text">passengers : {{results.passengers}}</p>
             <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+        <p>
+            <button type="button" class="btn btn-outline-dark"
+            (click)="toggleDisplayDivPilotes()">Pilotes concernés [+]</button>
+        </p>
+    </div>
+    <div style="margin-left :20px;">
+        <div *ngIf="!isShowDivPilotes">
+            <div *ngFor="let pilote of results.pilots">
+                <app-people-details [data]="pilote"></app-people-details>
+            </div>
         </div>
     </div>
 </div>

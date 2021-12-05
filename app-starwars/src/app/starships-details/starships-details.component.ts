@@ -12,6 +12,7 @@ export class StarshipsDetailsComponent implements OnInit {
   results:any | undefined;
   id:any;
   starships:any | undefined;
+  directory:any | undefined;
 
   constructor(private httpService: ServiceSwapiService, private route: ActivatedRoute, private router: Router) {
     this.router.routeReuseStrategy.shouldReuseRoute = function(){
@@ -19,19 +20,29 @@ export class StarshipsDetailsComponent implements OnInit {
     };
    }
 
+   isShowDivPilotes = true;  
+    
+   toggleDisplayDivPilotes() {  
+     this.isShowDivPilotes = !this.isShowDivPilotes;
+   }  
+
    ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    //console.log(this.router.url);
+
+    if(this.router.url.startsWith('/starships/')){
+      this.directory=true;
+    }
+
     if(this.data){
-    this.httpService.getInfosByURL(this.data).subscribe(
-      (response) => { 
-        this.results = response;
-        let findId = this.results.url.split("/");
-        findId = findId[5];
-        this.results.id =findId;
-        console.log(response);
-      }
-    );
+      this.httpService.getInfosByURL(this.data).subscribe(
+        (response) => { 
+          this.results = response;
+          let findId = this.results.url.split("/");
+          findId = findId[5];
+          this.results.id =findId;
+          console.log(response);
+        }
+      );
     }else{
     this.httpService.getInfosById('starships',id).subscribe(
       (response) => { 

@@ -1,0 +1,3 @@
+<label for="item-input">Enter item (3 char. min):</label>
+<input type="text" id="item-input" #newItem (keyup)="selectNewItem(newItem.value)">
+<button (click)="selectNewItem(newItem.value)">Valider</button>

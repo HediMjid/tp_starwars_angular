@@ -1,4 +1,5 @@
 <h3>List of starships</h3>
+<app-search-bar (newItemEvent)="findItem($event)"></app-search-bar>
 <div *ngFor="let starship of starships">
     <p><a routerLink="/starships/details/{{starship.id}}">{{starship.name}}</a></p>
 </div>
